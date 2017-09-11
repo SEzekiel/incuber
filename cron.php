@@ -5,7 +5,7 @@ fetch();
 function fetch()
 {
 
-	$conn = mysqli_connect("sql112.epizy.com","epiz_20077928","agnes123","epiz_20077928_incuber");
+	require('http://incuber.spleint.com/auth.php');
 	$query = "SELECT * FROM ubers WHERE 1";
 
 	$result = mysqli_query($conn,$query);
