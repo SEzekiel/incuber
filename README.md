@@ -9,4 +9,4 @@ This project is completely open source. Feel free to contribute and make it bett
 <h2>Privacy</h2>
 This app collects basic personal info like name and phone number. It is usually good courtesy to inform Uber drivers before sending their details. NOTE that all details have a life time of 1 hour, hence, they are deleted after one hour of being posted.
 
-Powered by Spleint
+Powered by <a href="http://spleint.com">Spleint</a>
