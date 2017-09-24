@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Pragm" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content>
@@ -10,64 +13,97 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-<link href="carousal.css" rel="stylesheet">
+<!-- <link href="carousal.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
+<script src="js/uikit-icons.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+<link href="carousal.css" rel="stylesheet">
+</head>
+<body class="uk-background-muted uk-panel">
+<!-- <nav class="uk-navbar uk-navbar-container">
+    <div class="uk-navbar-left">
+       <a class="uk-navbar-toggle" href="#">
+            <a href="" uk-icon="icon: close"></a><span class="uk-margin-small-left">Notify commnunity</span>
+        </a>
+    </div>
+</nav> -->
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<a class="navbar-brand" href="#">Notify community</a>
+<a href="index.html" uk-icon="icon: chevron-left; ratio: 2"></a><a class="navbar-brand" href="index.html">Notify community</a>
 
 <div class="collapse navbar-collapse" id="navbarCollapse">
 
 </div>
 </nav>
 <p></p>
-<div class="container" id>
-<form>
-<div class="form-group">
-<label for="formGroupExampleInput">Your name</label>
-<input type="text" class="form-control" id="name1" placeholder="Your name" required="true">
-</div>
-<div class="form-group">
-<label for="formGroupExampleInput">Uber driver's name</label>
-<input type="text" class="form-control" id="name" placeholder="Name of uber driver" required="true">
-</div>
-<div class="form-group">
-<label for="formGroupExampleInput2">Phone</label>
-<input type="phone" class="form-control" id="phone" placeholder="Phone Number of uber driver" required="true">
-</div>
-<div id="message"></div>
-<input type="button" class="btn btn-success" name="submit" value="Notify!" style="width: 100%" onclick="notify()">
-<p></p>
+
+<div class="uk-container uk-container-small">
+<form onsubmit="preventDefault()">
+  <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">Details</legend>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="text" placeholder="Your name" id="name1">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="text" placeholder="Uber driver's name" id="name">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="number" placeholder="Phone" id="phone">
+        </div>
+
+        <div class="uk-margin">
+            <input class="uk-input" type="number" placeholder="Apprx. time of arrival (min)" id="tyme">
+        </div>
+
+
+        <div id="message"></div>
+
+        
+    </fieldset>
 </form>
-<a href="index.html" class="btn btn-default" style="width: 100%">Go back</a>
+<button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" onclick="notify()">Notify</button>
+
+  <p uk-margin>
+    <a class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom" href="#" onclick="back()">Go back</a>
+    </p>
+
 </div>
 
-<input type="hidden" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="modal">
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Success</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-Woohoo! Your notification was sent successfully. Thanks
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="move()">Close and go to home</button>
-</div>
-</div>
-</div>
-</div>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
+
+<!-- jQuery is required -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-106347959-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
