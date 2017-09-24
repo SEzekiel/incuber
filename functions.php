@@ -68,6 +68,7 @@ function notify($name,$phone,$mname)
 	$result = mysqli_query($conn,$query);
 	if ($result) {
 		echo 1;
+		pushNotification();
 	}
 	else{
 		echo 0;
@@ -84,10 +85,10 @@ function fetch()
 	//echo mysqli_num_rows($result);
 	if (mysqli_num_rows($result) > 0) {
 		 while($row = mysqli_fetch_assoc($result)){
-		 	$minutes = $row['time'];
-		 	$minutes = (int)((time()-strtotime($minutes))/60);
-			echo "<div class=\"card card-inverse card-primary mb-3\" style=\"background-color: #0275d8; color: white\"><div class=\"card-block\"><p>Uber driver name: ". $row['name']."</p><p>Phone: ".$row['phone']."</p><p>Posted by: ".$row['mname']."</p><p>Time posted: ".$minutes." minutes ago</p></div></div>";
-		}
+		 $tyme = $row['tyme'];
+		 	//$minutes = (int)((time()-strtotime($minutes))/60);
+			echo "<div class=\"card card-inverse card-primary mb-3\" style=\"background-color: #0275d8; color: white\"><div class=\"card-block\"><p>Uber driver name: ". $row['name']."</p><p>Phone: ".$row['phone']."</p><p>Posted by: ".$row['mname']."</p><p>Time to arrive: ".$tyme." minutes time</p></div></div>";	
+		 }
 	}
 	else{
 		echo "There are no drivers heading for the hill at the moment";
@@ -97,5 +98,24 @@ function fetch()
 function connect()
 {
 	require('http://incuber.spleint.com/auth.php');
+}
+
+function pushNotification(){
+
+// Push The notification with parameters
+require_once('PushBots.class.php');
+$pb = new PushBots();
+// Application ID
+$appID = '59c17f184a9efa90928b456a';
+// Application Secret
+$appSecret = 'f62be525983103d5d23ccc4a539589fc';
+$pb->App($appID, $appSecret);
+$pb->Platform(array("0","1"));
+$pb->Badge("+2");
+// Notification Settings
+$pb->Alert("Heads up! An Uber is on its way to campus");
+$pb->Push();
+
+
 }
 ?>
