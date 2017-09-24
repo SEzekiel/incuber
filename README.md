@@ -7,6 +7,6 @@ NOTE: this app for the Ashesi community. If you are not a member of the Ashesi c
 <h2>Developers</h2>
 This project is completely open source. Feel free to contribute and make it better and bigger. If you have any questions let me know. The database connection file is not included in the repository for obvious reasons. Feel free provide your own hook to test your own verson of this application. The database schema is included to help you do this
 <h2>Privacy</h2>
-This app collects basic personal info like name and phone number. It is usually good courtesy to inform Uber drivers before sending their details. NOTE that all details have a life time of 1 hour, hence, they are deleted after one hour of being posted.
+This app collects basic personal info like name and phone number. It is usually good courtesy to inform Uber drivers before sending their details. NOTE that all details are stored for as long as you specify int the 'Aprx time to arrive' field in the notification form and are automatically deleted after that time expires.
 
 Powered by <a href="http://spleint.com">Spleint</a>
